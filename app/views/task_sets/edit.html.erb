@@ -1,0 +1,34 @@
+<h1>Editing problem sets</h1>
+
+<% form_for(@task_set) do |f| %>
+  <%= f.error_messages %>
+  
+  <p>
+	  <%= f.label :name %><br />
+	  <%= f.text_field :name %>
+  </p>
+  
+  <p>
+	  <%= f.label :description%><br />
+	  <%= f.text_field :description %>
+  </p>
+  
+	<p>
+	Problem list:
+	
+	<%= text_field_tag "task_ids", @task_set.task_ids.join(", ") %>
+	
+	<ul>
+	<% @task_set_entries.each do |p| %>
+		<li><%= p.task.name %>(<%= p.task.id %>)
+		<%= text_field_tag("description_#{p.id}") %>
+		</li>
+	<% end %>
+	</ul>
+
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @task_set %> |
+<%= link_to 'Back', task_set_path %>

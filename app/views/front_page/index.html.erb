@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag "index" %>
+
+<div class="headline_problem">
+		<h2>Featured Problem</h2>
+		<div class="content">
+			 <div class="difficulty">Difficulty: 
+			 	 <span class="value"><%= @featured_problem.difficulty %></span>
+			 </div>		
+			 <h3><%= link_to @featured_problem.name, @featured_problem %></h3>
+			 <div class="problem_text">
+			   <%= @featured_problem.text %>
+			   <div>
+  				 <%= attribution(@featured_problem) %>
+			     <p>
+			       <%= link_to "Visit problem page", @featured_problem%> to
+			       get hints or check your solution
+			     </p>
+			   </div>
+			  </div>
+		</div>
+</div>
+
+<div class="other_problems">
+  <h5>Check out these other problems</h5>
+  <ul>
+  	<% Problem.all(:limit => 5).each do |problem| %>
+ 		 	<li><%= link_to problem_link_text(problem), problem %></li>
+ 		<% end %>
+ 	</ul>
+</div>

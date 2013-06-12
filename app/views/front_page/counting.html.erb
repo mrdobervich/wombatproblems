@@ -1,0 +1,106 @@
+<h3>Combinatorics and Counting</h3>
+
+<b>What is it?</b>
+<p>Combinatorics studies situations that involve combining things together in specific arrangements.  For example, ways to combine teams together for matches in a tournament, or combine different kinds of people into experimental groups for testing a product.  We might want to study the different ways certain chains of amino acids combine to form a more complex molecule, or how to combine medical students together with medical schools for residency programs.
+</p>
+
+<p>There are lots of different kinds of questions you might ask about arrangements of objects.  Sometimes you want to know if a certain arrangement, or type of arrangement, is even possible (Can we match med students and hospitals so it isn't in anyone's interest to try and break their contracts?).  Sometimes you might want to know whether some arrangements have a certain desirable property.  <b>Counting</b> is the study of <i>how many ways</i> there are to combine objects together into a type of arrangement.
+</p>
+
+<p>Counting problems appear in biology, chemistry, physics, statistics, computer science, and many other fields.  Counting arguments are also often elegant ways of understanding a situation, or demonstrating a result.  Something that is algebraicly quite complicated can appear simple and obvious if you can find a connection to counting.
+</p>
+
+<p>For this crash course, we'll only look at the most basic (but still very powerful) ideas.</p>
+
+<b>Basic Counting Principal</b>
+<p><i>Example 1:  I have 3 shirts (red, green and blue) and 2 pairs of pants (black and white).  How many ways can I combine a shirt and a pair of pants to make my outfit?</i>
+</p>
+
+<p>Here are three ways to visualize all the possibilities...</p>
+
+<p>Visualize it as a tree of choices.
+<%= image_tag("counting2-smaller.png") %></p>
+
+<p>Visualize it as an ordered list.
+<%= image_tag("counting1-smaller.png") %>
+</p>
+
+<p>Visualize it as connecting two lists.
+<%= image_tag("counting3-smaller.png") %></p>
+
+<p>These pictures illustrate a solution-technique:<br />
+
+# of ways to select 1 pair of pants and 1 shirt = # of ways to select 1 pair of pants * # of ways to select 1 shirt.</p>
+
+<p>It's important for you to see why multiplication works in these cases.  No matter which pair of pants we choose, we could still choose <i>any</i> of our shirts; this means 3 possible shirts with black pants, and 3 possible shirts with white pants....in other words, 3*2 = 6 possible outfits.  If we had tan pants also, then we would have 3 choices of shirt for all <i>three</i> choices of pants, to give us 9 total possible outfits.
+</p>
+
+In general, this idea is known as the...<br />
+<b>Multiplication Rule:</b><p>
+# of ways to combine 2 things = # of possibilities the 1st thing could be * #of possibilities the 2nd thing could be.
+</p>
+
+<p>This idea generalizes to combining any number of things...
+
+# of ways to combine 4 things = # of possibilities for the 1st thing * ....
+</p>
+
+<p>Another way to think of it would be like this:
+total # of possibilities = # choices necessary to make my outfit * # of possibilities I have for each choice
+</p>
+
+<p>
+<i>Problem 2:  There are 2500 students in a high school.  The principal wants each student to have an id number, and suggests that it should be a single-digit, followed by an upper-case letter, followed by another single digit.  For example, some ids at the school might be 7V0 or 3D2.<br />
+(a)  Are there enough unique ids for all the students to have a different one?</i><br />
+(b)  What if the first digit can't be 0?<br />
+(c)  What if the first digit can't be 0 and both digits must be different, but you could either upper or lower-case letters for the middle?<br />
+</p>
+
+<p>For part (a), you could apply the multiplication rule this way:
+
+Ask yourself:  How many things am I combining?
+I need combine 3 different things to make a single id: a digit, a letter, and a digit.<br />
+
+Ask yourself:  How many possibilities do I have for each type of thing?
+There are 10 possibile digits I can use for my 1st digit.
+There are 26 possible upper-case letters to use.
+There are 10 possible digits I can use for my 2nd digit.
+
+Multiplication rule:  Total # of ids = 10*26*10
+																		 = 2600
+																		 
+Does that make enough ids for 2500 students?  Yes.
+</p>
+
+<p>Part (b) is very similar to part (a).  You are still combining 3 things:  a digit, a letter, and a digit; but now there's a restriction: the first digit can't be 0.
+
+That means...
+There are only <b>9</b> possible digits to use for my first digit (since I can't use 0)<br/>
+There are 26 possible upper-case letters to use.
+There are 10 possible digits to use for my 2nd digit still.
+
+Multiplication rule:  Total # of ids = 9*26*10
+																		 = 2340
+																		 
+Does this make enough ids for 2500 students?  No.
+</p>
+
+<p>Part (c) adds another restriction.  Let's see how it affects the numbers.<br />
+There are 9 possible digits for the 1st digit (because it can't be 0).
+There are 52 possible letters to use (26 possible upper-case and 26 possible lower-case)
+There are <b>9</b> possible digits to use for the 2nd digit.  It would have been 10 possible digits, but whichever digit I chose for the 1st digit is now off-limits, because the digits have to be different.  This leaves 9 others left over.<br />
+
+Multiplication rule:  Total # of ids = 9 * 52 * 9<br />
+																		 = 4212
+																		 
+Does this make enough ids for 2500 students?  Definitely yes.
+
+</p>
+
+
+<b>Permutations</b>
+<p></p>
+
+<b>Combinations</b>
+<p></p>
+

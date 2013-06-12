@@ -1,0 +1,16 @@
+<h3><%= @task_set.name %></h3>
+
+<p>
+<%= @task_set.description unless @task_set.description.nil? %>
+</p>
+
+<p>
+Problems:
+<ul>
+<% @task_set_entries.each do |p| %>
+	<li><%= p.task.name %>: <%= p.description %></li>
+<% end %>
+</ul>
+</p>
+<%= link_to 'Edit', :controller => 'task_sets', :action => 'edit', :id => @task_set.id %> |
+<%= link_to 'Back', task_set_path %>

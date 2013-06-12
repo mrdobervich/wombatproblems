@@ -1,0 +1,16 @@
+<h1>Problem recommendations:</h1>
+
+  <% @problem.problem_recommendations.each do |rec| %>
+  <%= rec.recommended_problem_id %> | 
+  <%= link_to 'Destroy', delete_recommended_path(:id => rec.id, :problem_id => @problem.id), :confirm => 'Are you sure?' %>
+	<br /><br />
+  <% end %>
+
+<%= form_tag(update_recommended_path(:id => @problem.id)) %>
+Recommended problem id: <%= text_field_tag 'recid' %><br />
+Comments: <%= text_area_tag 'comments' %>
+
+<br /><br />
+<%= submit_tag('Add recommendation') %>
+
+<%= link_to 'Back', @problem %>

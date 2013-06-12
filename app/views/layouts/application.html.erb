@@ -1,0 +1,45 @@
+<html>
+	<head>
+	    <%= javascript_include_tag "prototype" %>
+  	  <%= javascript_include_tag :fckeditor %>
+  	  <% # javascript_include_tag "scriptaculous" %> 
+  	  <%= javascript_include_tag "effects" %>
+  	  <%= javascript_include_tag "controls" %>
+  	  
+  	  <%= @embeds %>
+  	  
+  	  <%= stylesheet_link_tag "application" %>
+		<title>
+			<%= @page_title or 'Project Wombat' %>
+		</title>  
+	</head> 
+	<body>
+		<div> 
+			<div id="header"> 
+				<%= image_tag("wombat_60.png") %>
+				<h1>Project Wombat</h1> 
+				<ul class="nav clearfix"> 
+	  			<li><%= link_to "Home", home_url %></li> 
+	  			<li><%= link_to "Problems", problems_url %></li>
+	  			<li><%= link_to "Learn", learn_url %></li>
+	  			<li>|</li>
+	  			<% if current_user %>
+					  <li>Logged in as <%= link_to current_user.login, current_user, :action => "show" %></li>
+					  <li><%= link_to "Logout", logout_url %></li>
+					<% else %>
+					 	<li><%= link_to "Login", login_url %></li>
+						<li><%= link_to "Signup", register_url %></li>
+					<% end %>
+				</ul> 
+			</div> 
+			<div id="content"> 
+			  <p class="notice"><%= flash[:notice] %></p>
+			  <p class="error"><%= flash[:error] %></p>
+			  <%= yield(:content) or yield %>
+			</div> 
+			<div id="footer"> 
+			  
+			</div> 
+	</div> 
+	</body>
+</html>

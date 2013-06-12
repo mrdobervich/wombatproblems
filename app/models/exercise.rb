@@ -1,0 +1,3 @@
+class Exercise < Task
+
+end

@@ -1,0 +1,14 @@
+<h1>New Problem Set:</h1>
+
+<%= form_tag(:controller => 'task_sets', :action => 'create') %>
+Name of task set: 
+<%= text_field_tag 'name' %><br />
+
+Description of the task set (optional):
+<%= text_area_tag 'description' %><br />
+
+List of desired task ids: 
+<%= text_field_tag 'task_ids' %><br />
+
+<br /><br />
+<%= submit_tag('Create task set') %>

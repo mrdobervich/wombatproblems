@@ -1,0 +1,14 @@
+
+fieldset {
+display: block;
+width: 255px;
+margin: 20px; 
+padding: 10px;
+background-color: #eee;
+}
+
+fieldset > label {
+display: block;
+margin-bottom: 2px;
+font-weight: bold;
+}

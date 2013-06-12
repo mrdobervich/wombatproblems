@@ -1,0 +1,35 @@
+div.headline_problem {
+  background-color: #ffffff;
+  border: 1px solid #a5a578;
+  border-top: none;
+  margin-top: 20px;
+}
+
+div.headline_problem h2 {
+  background-color: #a5a578;
+  margin: 0;
+  padding: 5px;
+  font-size: 10px;
+  font-weight: normal;
+}
+
+div.headline_problem h3 {
+  font-size: 15px;
+}
+
+div.headline_problem div.content {
+  margin: 10px;
+}
+
+div.headline_problem div.difficulty {
+  float: right;
+}
+
+div.headline_problem div.attribution {
+  font-size:11px;
+  text-align:right;
+}
+
+table tr {
+  margin: 0 30 0 30px;
+}

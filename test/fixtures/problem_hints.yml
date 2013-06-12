@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  problem_id: 1
+  hint: MyText
+  order: 1
+
+two:
+  problem_id: 1
+  hint: MyText
+  order: 1

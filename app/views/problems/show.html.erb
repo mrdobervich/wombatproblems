@@ -1,0 +1,86 @@
+<%= stylesheet_link_tag "problems/show" %>
+<%= javascript_include_tag "hint" %>
+
+<div class="difficulty">Difficulty: 
+	<span class="value"><%= @problem.difficulty %></span>
+</div>
+
+<h1><%= @problem.name %></h1>
+
+<% unless current_user.nil? %>
+  <div style="float: right"> 
+    <% if @problem_flag.nil? %>
+      <%= link_to "flag this problem for later", (flag_problem_url :id => @problem.id) %>
+    <% else %>
+       flagged! <%= link_to "unflag", (unflag_problem_url :id => @problem.id) %>
+    <% end %>
+  </div>
+<% end %>
+
+<% unless @problem.tags.empty? %>
+	<div class="tags">tags:
+		<% @problem.tags.each do |tag| %>
+			<%= link_to tag.name, (tagged_problems_path :tag => tag.name ) %>
+		<% end %>
+	</div>
+<% end %>
+
+<div class="problem_text">
+  <%= @problem.text %>
+  <%= attribution(@problem) %>
+</div>
+
+<div class="controls">
+	<div class="solution">
+		<% if (@problem.solution_test.nil? or @problem.solution_test.empty?) %>
+			&nbsp;
+		<% else %>
+		  <% form_tag check_solution_url do %>
+		    <%= text_field_tag "answer" %>
+		    <%= hidden_field_tag "id", @problem.id %>
+		    <%= submit_tag "Check my Solution" %>
+		  <% end %>
+		  
+		  <% unless @check_result.nil? %>
+		  	<%= @check_result %>
+		  <% end %>
+		<% end %>
+	</div>
+
+	<div class="hints">
+		<% if @problem.problem_hints.empty? %>
+			&nbsp;
+		<% else %>
+			<div id="hint_list">
+	  		<% @problem.problem_hints.each do |hint| %>
+		  		<div class="hint" style="display:none">
+		  			<%= hint.hint %>
+		  		</div>
+	  		<% end %>
+	  	</div>
+			<input type="button" value="Get a Hint" id="hint_button" />
+		<% end %>
+	</div>
+</div>
+
+<% unless @problem.problem_recommendations.empty? %>
+	<div class="recommendations">
+	  <h5>Recommended next problems</h5>
+		<ul>
+			<% @problem.problem_recommendations.each do |rec| %>
+				<li><%= link_to problem_link_text(rec.recommended_problem), 
+				          rec.recommended_problem %>
+					<% unless rec.comments.empty? %>
+						- <%= rec.comments %>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<% if current_user && current_user.is_admin? %>
+  <%= link_to "Edit this problem's recommendations", edit_recommended_path(:id => @problem.id)  %><br />
+  <%= link_to "Edit this problem's hints", edit_hints_path(:id => @problem.id)  %><br />
+  <%= link_to 'Edit', edit_problem_path(@problem) %> |
+<% end %>

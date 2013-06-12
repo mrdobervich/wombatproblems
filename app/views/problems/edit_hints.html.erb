@@ -1,0 +1,13 @@
+<h1>Problem hints:</h1>
+
+  <% @problem.problem_hints.each do |hint| %>
+  <%= hint.hint %> | 
+  <%= link_to 'Destroy', delete_hints_path(:id => hint.id, :problem_id => @problem.id), :confirm => 'Are you sure?', :method => :delete %>
+	<br /><br />
+  <% end %>
+
+<%= form_tag(update_hints_path(:id => @problem.id)) %>
+<%= text_area_tag 'new_hint' %>
+<%= submit_tag('Add hint') %>
+
+<%= link_to 'Back', @problem %>

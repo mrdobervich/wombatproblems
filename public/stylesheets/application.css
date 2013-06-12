@@ -1,0 +1,126 @@
+body {
+  margin: 0px auto;
+  background-color: #ffffcc;
+  width: 750px;
+  font-family: arial, sans-serif;
+  font-size: 12px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #063269;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #063269;
+}
+
+ul {
+  padding: 0px;
+  list-style-type: none;
+  margin: 0px;
+}
+
+#header {
+  background-color: #063269;
+  color: #E0E0A3;
+  padding: 10px;
+  height: 63px;
+}
+
+#header img {
+  float: left;
+  margin-right: 15px;
+}
+
+#header h1 {
+	font-size: 20px;
+	font-weight: bold;
+	color: #FDD619;
+	margin: 2px 0 0 0;
+	height: 36px;
+}
+
+#header ul.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#header ul.nav li {
+  float: left;
+  margin-right: 15px;
+}
+
+#header a, #header a:visited {
+  color: #fff;
+}
+
+#header a:hover {
+  text-decoration: none;
+}
+
+#content {
+  padding: 20px 20px 50px 20px;
+  background-color: #E0E0A3;
+  border-top: 2px solid #fff;
+}
+
+#content p.notice {
+  margin: 0;
+}
+
+#content h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+span.difficulty {
+  display:inline-block;
+  font-size:10px;
+  margin:-1px 9px 1px 0;
+  vertical-align:middle;
+}
+
+#footer {
+  background-color: #063269;
+  color: #E0E0A3;
+  padding: 10px;
+}
+
+
+div.hidden {
+  display: none;
+}
+
+/* from http://www.webtoolkit.info/css-clearfix.html */
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+html[xmlns] .clearfix {
+	display: block;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+

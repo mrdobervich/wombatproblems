@@ -1,0 +1,11 @@
+<h1>Listing problems</h1>
+
+<% # sortable_table %>
+
+<%= render :partial => "problem_list", :locals => {:problems => @problems} %>
+
+<br />
+
+<% if viewer_is_admin %>
+  <%= link_to 'New problem', new_problem_path %>
+<% end %>

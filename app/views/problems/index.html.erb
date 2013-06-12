@@ -1,0 +1,42 @@
+<h1>Browse problems</h1>
+
+<p>
+<%= link_to "List all Problems", list_problems_path %>
+</p>
+
+<div style="float: left; width: 60%">
+<h3>By difficulty</h3>
+
+<% form_tag search_problems_path do %>
+	<%= radio_button_tag :search_type, :single, true %>	
+	Find all problems of difficulty
+	<%= select_tag :difficulty, Problem.difficulties.map {|d| "<option>#{d}</option>"}.join %>
+	
+	<br/><br/>
+	
+	<%= radio_button_tag :search_type, :bounded, false %>	
+	Find problems with difficulty from
+	<%= select_tag :difficulty_min, Problem.difficulties.map {|d| "<option>#{d}</option>"}.join %>
+	to
+	<% max_options = Problem.difficulties[0..-2].map {|d| "<option>#{d}</option>"}.join %>
+	<% max_options += "<option selected='selected'>#{Problem.difficulties[-1]}</option>" %>
+	<%= select_tag :difficulty_max, max_options %>
+	
+	<br/><br/>
+	<%= submit_tag "Find Problems" %>
+		
+<% end %>
+</div>
+
+<div style="float: right; width: 40%">
+<h3>By tags</h3>
+
+<% Problem.tag_counts_on(:tags).each do |tag| %>
+  <%= link_to tag.name, (tagged_problems_path :tag => tag.name ) %>
+<% end %>
+
+</div>
+
+.
+
+<br />

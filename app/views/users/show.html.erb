@@ -1,0 +1,16 @@
+Welcome, <%= current_user.name %>
+
+<p>
+You have solved <%= @problems_solved.size %> problems (that we know about, anyhow).
+</p>
+
+<p>
+<% if @problems_solved.size > 0 %>
+<ul>
+<%   @problems_solved.each do |p| %>
+			 <li><%= image_tag("completed2.gif", :size => "16x16", :alt => "*") %>
+			 <%= link_to (p.problem.name), p.problem %></li>
+<%   end %>
+</ul>
+<% end %>
+</p>

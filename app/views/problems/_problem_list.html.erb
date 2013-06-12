@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag "problems/list" %>
+<table class="problem_list">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Difficulty</th>
+    <th>Tags</th>
+    <th>Solved by</th>
+  </tr>
+
+<% problems.each do |problem| %>
+  <tr>
+    <td>
+      <%= image_tag("flagged.png", :size => "13x16", :alt => "f") if (@flagged_problems && (@flagged_problems.include? problem.id)) %>
+      <%= image_tag("completed.png", :size => "16x16", :alt => "*") if (@solved_problems && (@solved_problems.include? problem.id)) %>
+    </td>
+    <td class="left"><%=link_to (h problem.name), problem %></td>
+    <td><%=h problem.difficulty %></td>
+    <td>
+      <% 	problem.tags.each do |tag| %>
+    	<%= 	link_to tag.name, (tagged_problems_path :tag => tag.name ) %>
+    	<%	end %>
+    </td>
+    <td><%= rand 10 %></td>
+    <% if viewer_is_admin %>
+      <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
+      <td><%= link_to 'Destroy', problem, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>

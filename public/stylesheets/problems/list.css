@@ -1,0 +1,9 @@
+table.problem_list td {
+  text-align: center;	
+}
+table.problem_list td, table.problem_list th {
+  padding: 2px 5px;
+}
+table.problem_list td.left {
+  text-align: left;	
+}

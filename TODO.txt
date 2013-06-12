@@ -1,0 +1,43 @@
+To Do:
+
+General style:  make font size smaller.  Compare look to Proj. Euler.
+Re-style the "learn" page.
+Style "flashed" messages so they stand out.
+Style main page with login box in the header?
+Change 'flag!' and 'unflag!' to some kind of clickable icon?
+re-style the error box for the register page.
+
+Make sortable table of search results.
+
+Allow problem-listing by problem source.
+Make links to problem-sources.
+
+If someone solves a problem and isn't logged in, recommend that they log in
+to keep track of their results.
+
+When there's no "check your answer" display, put a small message
+asking people if they know the answer, or if they can think of a related-question
+that has a numerical answer we could use.
+
+Bugs:
+
+!Make sure only administrators can do administration things!
+Visual Bug:  IE displays main div in full broswer width
+Rich Text Widget fails in IE!!
+
+Fix style on Problems page so it doesn't overlap the button.
+
+SOLVED: Displays check-your-answer when not available.
+SOLUTION:  Add (or @problem.solution_test.empty?) in problem show.html.erb
+
+SOLVED: Gives error if tries to check when blank.
+SOLUTION: replace entire check_solutions method in problems controller
+
+SOLVED: Register page starts with errors--tries to register the empty fields.
+SOLUTION: Change routes.rb so register has action new
+
+SOLVED:  **Tags don't seem to save?  Or maybe they don't re-load to display??
+SOLUTION:  change form tag in /views/problems/new.html.erb to be like the edit one
+
+SOLVED:  Wrong password produces no messages
+SOLUTION:  add block in /views/layouts/applications.html.erb for error flashes

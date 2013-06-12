@@ -1,0 +1,53 @@
+div.difficulty {
+  float: right;
+}
+
+div.tags {
+  font-size: 12px;
+}
+
+div.problem_text {
+  background-color: #fffcc;
+  padding: 20px;
+  border: 1px dotted #e0df52;
+  margin: 30px 0;
+}
+
+div.attribution {
+  text-align: right;
+  font-size: 11px;
+}
+
+div.hints, div.solution {
+  width: 350px;
+  text-align: center;
+}
+
+#hint_list {
+  text-align: left;
+  font-size: 14px;
+}
+
+#hint_list div.hint {
+  margin: 30px 20px;
+}  
+
+div.solution {
+  float: right;
+}
+
+div.hints input, div.solution input {
+  margin: 0 auto;
+}
+
+div.recommendations {
+  margin-top: 20px;
+}
+
+div.recommendations h5 {
+  margin-bottom: 0;
+}
+
+div.recommendations ul li {
+  margin: 2px 0;
+}
